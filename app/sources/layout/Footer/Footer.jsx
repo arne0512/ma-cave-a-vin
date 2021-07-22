@@ -6,13 +6,12 @@ import Link from "@material-ui/core/Link";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="common">
+    <Typography variant="body2" color="inherit">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        <i>Ma Cave à Vin{" "}</i>
+        <i>Ma Cave à Vin </i>
       </Link>{" "}
-      <i>{new Date().getFullYear()} - par Arnaud Clerc
-      </i>
+      <i>{new Date().getFullYear()} - par Arnaud Clerc</i>
     </Typography>
   );
 }
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 2),
     marginTop: "auto",
     backgroundColor: "#6d071a",
-    textAlign: "center"
+    textAlign: "center",
   },
 }));
 
