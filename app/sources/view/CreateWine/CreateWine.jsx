@@ -1,12 +1,14 @@
 import { Button, makeStyles, Paper, TextField } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
+import axios from "axios";
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
-    margin: "5vh",
     fontSize: "50px",
+    padding: "8%",
   },
 
   text: {
@@ -22,9 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
-    width: "90%",
-    margin: "20px",
-    justifySelf: "center",
+    width: "80%",
+    marginLeft: "10%",
     padding: "50px",
   },
 
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 function CreateWine(props) {
   const classes = useStyles();
   const [form, setForm] = useState({
-    name: "",
+    estate_name: "",
     vintage: "",
     appellation: "",
     type: "",
@@ -62,8 +63,8 @@ function CreateWine(props) {
     comments: "",
   });
 
-  const handleNameChange = (e) => {
-    setForm({ ...form, name: e.target.value });
+  const handleEstateNameChange = (e) => {
+    setForm({ ...form, estate_name: e.target.value });
   };
   const handleVintageChange = (e) => {
     setForm({ ...form, vintage: e.target.value });
@@ -95,22 +96,42 @@ function CreateWine(props) {
   const handleCommentsChange = (e) => {
     setForm({ ...form, comments: e.target.value });
   };
-  const handleSaveWine = (e) => {
-    e.preventDefault();
-    console.log(form);
+  //   const handleChange = (e) => {
+  //     setForm({ ...form, [e.target.name]: e.target.value });
+  //   };
+
+  //   useEffect(() => {
+  //     if (match?.params.id) {
+  //       axios
+  //         .get(`http//localhost:3030/wines/${props.params.id}`)
+  //         .then((response) => setForm(response.data));
+  //     }
+  //   }, []);
+
+
+  const handleSaveWine = async () => {
+    // if (match?.params.id) {
+    //   axios
+    //     .patch(`http://localhost:3030/wines/${props.params.id}`, form)
+    //     .then(() => {
+    //       history.push("/");
+    //     });
+    // } else {
+    await axios.post("http://localhost:3030/wines", form);
+    
   };
 
   return (
     <>
-      <Typography variant="h2">
-        <div className={classes.title}>Ajouter un vin à ma cave</div>
-      </Typography>
       <Paper
         className={classes.container}
         variant="elevation"
         elevation="3"
         color="primary"
       >
+        <Typography variant="h2">
+          <div className={classes.title}>Ajouter un vin à ma cave</div>
+        </Typography>
         <div className={classes.labelInput}>
           <Typography variant="h2" className={classes.littletitle}>
             Domaine :
@@ -119,8 +140,9 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
-              onChange={handleNameChange}
+              value={form.estate_name}
+              onChange={handleEstateNameChange}
+              //   onChange={handleChange}
             />
           </form>
         </div>
@@ -132,7 +154,7 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.type}
               onChange={handleTypeChange}
             />
           </form>
@@ -145,20 +167,20 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.appellation}
               onChange={handleAppellationChange}
             />
           </form>
         </div>
         <div className={classes.labelInput}>
           <Typography variant="h2" className={classes.littletitle}>
-            Cépage :
+            Cépage(s) :
           </Typography>
           <form noValidate autoComplete="off">
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.grape}
               onChange={handleGrapeChange}
             />
           </form>
@@ -171,7 +193,7 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.vintage}
               onChange={handleVintageChange}
             />
           </form>
@@ -184,7 +206,7 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.organic}
               onChange={handleOrganicChange}
             />
           </form>
@@ -197,7 +219,7 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.buying_year}
               onChange={handleBuyingYearChange}
             />
           </form>
@@ -210,10 +232,11 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.price}
               onChange={handlePriceChange}
             />
           </form>
+          <Typography variant="h2">€</Typography>
         </div>
         <div className={classes.labelInput}>
           <Typography variant="h2" className={classes.littletitle}>
@@ -223,7 +246,7 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.quantity}
               onChange={handleQuantityChange}
             />
           </form>
@@ -236,11 +259,13 @@ function CreateWine(props) {
             <TextField
               id="outlined-basic"
               variant="outlined"
-              value={form.title}
+              value={form.tasting_note}
               onChange={handleTastingNoteChange}
             />
           </form>
-          / 10
+          <Typography variant="h2" className={classes.littletitle}>
+            / 10{" "}
+          </Typography>
         </div>
         <Typography
           variant="h2"
@@ -255,13 +280,17 @@ function CreateWine(props) {
             multiline
             rows={10}
             variant="outlined"
-            value={form.text}
+            value={form.comments}
             onChange={handleCommentsChange}
           />
         </form>
         <div className={classes.saveButton}>
-          <Button variant="outlined" color="primary" onClick={handleSaveWine}>
-            Enregistrer
+          <Button
+            variant="outlined"
+            style={{ color: "white", backgroundColor: "#6d071a" }}
+            onClick={handleSaveWine}
+          >
+            Ajouter
           </Button>
         </div>
       </Paper>

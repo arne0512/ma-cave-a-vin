@@ -6,7 +6,7 @@ import WinesList from "../sources/view/Inventory/components/WinesList";
 import WineDetails from "../sources/view/Inventory/WineDetails"
 
 
-function MaCaveAVin({ Component, pageProps, wineCard }) {
+function MaCaveAVin({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Main>

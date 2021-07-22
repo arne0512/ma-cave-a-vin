@@ -7,10 +7,10 @@ const useStyles = makeStyles({
   root: {
     width: "100%",
     height: "100%",
-    // backgroundImage: "url('/assets/interieurESPACE1900.jpg')",
+    backgroundImage: "url('/assets/interieurESPACE1900.jpg')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    bottom: 0,
+    backgroundAttachment: "fixed",
   },
 });
 

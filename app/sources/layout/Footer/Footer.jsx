@@ -9,10 +9,10 @@ function Copyright() {
     <Typography variant="body2" color="common">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Ma Cave à Vin{" "}
+        <i>Ma Cave à Vin{" "}</i>
       </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      <i>{new Date().getFullYear()} - par Arnaud Clerc
+      </i>
     </Typography>
   );
 }

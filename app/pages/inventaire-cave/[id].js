@@ -1,5 +1,7 @@
 import WineDetails from "../../sources/view/Inventory/WineDetails";
 import { useRouter } from "next/router";
+import axios from "axios";
+
 
 const WinePage = ({ wineCard }) => {
   const router = useRouter();
@@ -10,30 +12,27 @@ const WinePage = ({ wineCard }) => {
 };
 
 export async function getStaticPaths() {
+    const res = await axios.get("http://localhost:3030/wines");
+    const data = await res.data;
+
+    const paths = data.map((wineCard) => {
+        return {
+            params: { id: wineCard.id.toString()}
+        };
+    });
+
   return {
-    paths: [],
+    paths,
     fallback: "blocking",
   };
 }
 
 export async function getStaticProps(props) {
-  const wineCard = {
-    id: 1,
-    name: "Château Moulin",
-    vintage: "1997",
-    appellation: "Pessac-Léognan",
-    type: "Rouge",
-    grape: "Merlot 80% / Cabernet Sauvignon 20%",
-    organic: "Non",
-    price: "42€",
-    buying_year: "2005",
-    quantity: "1",
-    tasting_note: "",
-    comments: "",
-  };
+    const wineCard = await axios.get(`http://localhost:3030/wines/${props.params.id}`)
+
   return {
     props: {
-      wineCard: wineCard,
+      wineCard: wineCard.data,
     },
     revalidate: 60,
   };

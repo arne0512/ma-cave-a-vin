@@ -15,10 +15,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "22px",
     "&:hover": {
       cursor: "pointer",
+      fontWeight: "bold",
     },
     marginRight: "20px",
     borderLeft: "1px solid",
+    borderRight: "1px solid",
     paddingLeft: "20px",
+    paddingRight: "20px",
   },
 }));
 
@@ -27,7 +30,7 @@ function title(props) {
   return (
     <div className={classes.root}>
       <Link href="/">
-        <Typography className={classes.typo}>Ma Cave à Vin</Typography>
+        <Typography className={classes.typo}>Wine Cellar</Typography>
       </Link>
     </div>
   );

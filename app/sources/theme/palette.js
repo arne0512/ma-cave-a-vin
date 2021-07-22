@@ -6,7 +6,7 @@ const palette = {
     },
     type: "light",
     primary: {
-      light: "#B4B8D4", // bleu clair
+      light: "#6d071a", // bleu clair
       main: "#006969", // new vert 
       dark: "#B4B8D4", // bleu clair
       contrastText: "rgba(255, 255, 255, 1)", // blanc

@@ -7,13 +7,18 @@ import ConnectionButton from "./components/ConnectionButton"
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
       display: "flex",
+      justifyContent: "space-around",
       height: "100px",
       alignItems: "center",
-      justifyContent: "center",
       backgroundColor: "#6d071a",
+      position: "fixed",
+      width: "100%",
+      top: 0,
+      borderBottom: "1px solid black",
+      zIndex: 7
     },
+    
   }));
 
 function Header(props) {

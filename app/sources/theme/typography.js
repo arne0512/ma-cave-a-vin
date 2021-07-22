@@ -14,7 +14,7 @@ const typography = {
   h2: {
     color: palette.primary.light, 
     fontWeight: 400,
-    fontSize: "38px",
+    fontSize: "20px",
     lineHeight: 1.5,
     fontFamily: "Open Sans Condensed, sans-serif",
     textTransform: "uppercase",

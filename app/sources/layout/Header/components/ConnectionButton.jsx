@@ -8,13 +8,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  buttonco: {
+  connectionButton: {
     backgroundColor: "#6d071a",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
     marginRight: "40px",
+    border: "1px solid white",
     "&:hover": {
       backgroundColor: "white",
       color: "#C0392B"
@@ -31,7 +32,7 @@ function ConnectionButton(props) {
         aria-label="connexion"
         variant="contained"
         color="secondary"
-        className={classes.buttonco}
+        className={classes.connectionButton}
       >
         Connexion{" "}
       </Button>
