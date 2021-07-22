@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,9 @@ function CellarButton(props) {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.typo}>Accéder à ma cave</Typography>
+      <Link href="/inventaire-cave">
+        <Typography className={classes.typo}>Accéder à ma cave</Typography>
+      </Link>
     </div>
   );
 }

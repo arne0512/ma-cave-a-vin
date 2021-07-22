@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,9 @@ function title(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography className={classes.typo}>Ma Cave à Vin</Typography>
+      <Link href="/">
+        <Typography className={classes.typo}>Ma Cave à Vin</Typography>
+      </Link>
     </div>
   );
 }

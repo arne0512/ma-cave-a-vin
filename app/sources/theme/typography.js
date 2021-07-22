@@ -71,7 +71,7 @@ const typography = {
     // Typo pour paragraphe et texte. (petite taille)
   },
   body2: {
-    color: common.black,
+    color: common.white,
     fontSize: "16px",
     lineHeight: 1.3,
     fontFamily: "Raleway",

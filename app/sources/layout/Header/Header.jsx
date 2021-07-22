@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
       height: "100px",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "brown",
+      backgroundColor: "#6d071a",
     },
   }));
 
