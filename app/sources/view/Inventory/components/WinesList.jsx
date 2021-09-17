@@ -24,6 +24,13 @@ const columns = [
     color: "white",
     backgroundColor: "#6d071a",
   },
+  // {
+  //   id: "grape",
+  //   label: "Cépage",
+  //   minWidth: 200,
+  //   color: "white",
+  //   backgroundColor: "#6d071a",
+  // },
   {
     id: "vintage",
     label: "Année",

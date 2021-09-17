@@ -60,7 +60,9 @@ function WineDetails({ wineCard: [wineCard] }) {
   const upDateQuantity = (newQuantity) => {
     if (newQuantity >= 0) {
       setWine({ ...wine, quantity: newQuantity });
-      //axios.patch
+      axios.patch(`http://localhost:3030/wines/${wineCard.id}`, {
+        quantity: newQuantity,
+      });
     }
   };
 

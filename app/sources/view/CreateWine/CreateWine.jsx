@@ -64,42 +64,9 @@ function CreateWine(props) {
     comments: "",
   });
 
-  const handleEstateNameChange = (e) => {
-    setForm({ ...form, estate_name: e.target.value });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleVintageChange = (e) => {
-    setForm({ ...form, vintage: e.target.value });
-  };
-  const handleAppellationChange = (e) => {
-    setForm({ ...form, appellation: e.target.value });
-  };
-  const handleTypeChange = (e) => {
-    setForm({ ...form, type: e.target.value });
-  };
-  const handleGrapeChange = (e) => {
-    setForm({ ...form, grape: e.target.value });
-  };
-  const handleOrganicChange = (e) => {
-    setForm({ ...form, organic: e.target.value });
-  };
-  const handlePriceChange = (e) => {
-    setForm({ ...form, price: e.target.value });
-  };
-  const handleBuyingYearChange = (e) => {
-    setForm({ ...form, buying_year: e.target.value });
-  };
-  const handleQuantityChange = (e) => {
-    setForm({ ...form, quantity: e.target.value });
-  };
-  const handleTastingNoteChange = (e) => {
-    setForm({ ...form, tasting_note: e.target.value });
-  };
-  const handleCommentsChange = (e) => {
-    setForm({ ...form, comments: e.target.value });
-  };
-  //   const handleChange = (e) => {
-  //     setForm({ ...form, [e.target.name]: e.target.value });
-  //   };
 
   //   useEffect(() => {
   //     if (match?.params.id) {
@@ -142,8 +109,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.estate_name}
-              onChange={handleEstateNameChange}
-              //   onChange={handleChange}
+              name="estate_name"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -156,7 +123,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.type}
-              onChange={handleTypeChange}
+              name="type"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -169,7 +137,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.appellation}
-              onChange={handleAppellationChange}
+              name="appellation"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -182,7 +151,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.grape}
-              onChange={handleGrapeChange}
+              name="grape"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -195,7 +165,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.vintage}
-              onChange={handleVintageChange}
+              name="vintage"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -208,7 +179,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.organic}
-              onChange={handleOrganicChange}
+              name="organic"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -221,7 +193,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.buying_year}
-              onChange={handleBuyingYearChange}
+              name="buying_year"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -234,7 +207,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.price}
-              onChange={handlePriceChange}
+              name="price"
+              onChange={handleChange}
             />
           </form>
           <Typography variant="h2">€</Typography>
@@ -248,7 +222,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.quantity}
-              onChange={handleQuantityChange}
+              name="quantity"
+              onChange={handleChange}
             />
           </form>
         </div>
@@ -261,7 +236,8 @@ function CreateWine(props) {
               id="outlined-basic"
               variant="outlined"
               value={form.tasting_note}
-              onChange={handleTastingNoteChange}
+              name="tasting_note"
+              onChange={handleChange}
             />
           </form>
           <Typography variant="h2" className={classes.littletitle}>
@@ -282,7 +258,8 @@ function CreateWine(props) {
             rows={10}
             variant="outlined"
             value={form.comments}
-            onChange={handleCommentsChange}
+            name="comments"
+            onChange={handleChange}
           />
         </form>
         <div className={classes.saveButton}>
