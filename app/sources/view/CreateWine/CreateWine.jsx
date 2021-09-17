@@ -2,7 +2,7 @@ import { Button, makeStyles, Paper, TextField } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
-
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CreateWine(props) {
+  const router = useRouter();
   const classes = useStyles();
   const [form, setForm] = useState({
     estate_name: "",
@@ -108,17 +109,17 @@ function CreateWine(props) {
   //     }
   //   }, []);
 
-
   const handleSaveWine = async () => {
+    axios.post("http://localhost:3030/wines", form).then(() => {
+      router.push("/inventaire-cave");
+    });
     // if (match?.params.id) {
     //   axios
     //     .patch(`http://localhost:3030/wines/${props.params.id}`, form)
     //     .then(() => {
-    //       history.push("/");
     //     });
     // } else {
-    await axios.post("http://localhost:3030/wines", form);
-    
+    // await axios.post("http://localhost:3030/wines", form);
   };
 
   return (

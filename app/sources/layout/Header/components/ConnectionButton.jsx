@@ -1,5 +1,7 @@
 import { makeStyles, Button } from "@material-ui/core";
 import React from "react";
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid white",
     "&:hover": {
       backgroundColor: "white",
-      color: "#C0392B"
+      color: "#C0392B",
     },
   },
 }));
@@ -28,14 +30,16 @@ function ConnectionButton(props) {
 
   return (
     <div className={classes.root}>
-      <Button
-        aria-label="connexion"
-        variant="contained"
-        color="secondary"
-        className={classes.connectionButton}
-      >
-        Connexion{" "}
-      </Button>
+      <Tooltip title="In Progress..." arrow>
+        <Button
+          aria-label="connexion"
+          variant="contained"
+          color="secondary"
+          className={classes.connectionButton}
+        >
+          Connexion{" "}
+        </Button>
+      </Tooltip>
     </div>
   );
 }
